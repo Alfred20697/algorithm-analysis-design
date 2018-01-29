@@ -1,7 +1,14 @@
 // C++ implementation of Radix Sort
 #include<iostream>
+#include <chrono> // C++11
+#include <cstdlib>
 using namespace std;
- 
+
+//to compile
+// g++ -std=c++11 -c filename.cpp
+// g++ -o filename filename.o
+// g++ filename
+
 // A utility function to get maximum value in arr[]
 int getMax(int arr[], int n)
 {
@@ -55,19 +62,40 @@ void radixsort(int arr[], int n)
         countSort(arr, n, exp);
 }
  
-// A utility function to print an array
-void print(int arr[], int n)
+/* Function to print an array */
+void printArray(int arr[], int size)
 {
-    for (int i = 0; i < n; i++)
+    int i;
+    for (i=0; i < size; i++)
         cout << arr[i] << " ";
+    cout << endl;
 }
  
 // Driver program to test above functions
 int main()
 {
-    int arr[] = {170, 45, 75, 90, 802, 24, 2, 66};
-    int n = sizeof(arr)/sizeof(arr[0]);
-    radixsort(arr, n);
-    print(arr, n);
+    const int SIZE = 20;
+    srand(time(0));
+    int* arr = new int[SIZE];
+    for(int i=0;i<SIZE;i++){
+        arr[i] = rand() % 100;
+    }
+
+    // print initial array
+    cout << "Initial Array: ";
+    printArray(arr, SIZE);
+
+    auto start = chrono::system_clock::now();
+    radixsort(arr, SIZE);
+    auto end = chrono::system_clock::now();
+    chrono::duration<double> duration = end - start;
+
+    // print sorted array
+    cout << "Sorted Array: ";
+    printArray(arr, SIZE);
+
+    cout << "Duration: " << duration.count() << "s\n";
+    delete [] arr;
+
     return 0;
 }
