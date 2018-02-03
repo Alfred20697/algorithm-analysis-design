@@ -1,0 +1,12 @@
+Quick Sort and Radix Sort Program Guide
+Perform a comparative analysis between two sorting algorithms: quick-sort and radix-sort. The experiments should
+cover the following aspects:
+1. Correct implementation of quick-sort. Output the intermediate results for a random array of 20 elements for
+lecturer to inspect the correctness of algorithms. [3m]
+2. Correct implementation of radix-sort. Output the intermediate results for a random array of 20 elements for
+lecturer to inspect the correctness of algorithms. [3m]
+3. Different array sizes (10,000, 100,000, 1,000,000, etc.) that can show significant results. [2m]
+4. Different pivot for quick-sort (random pivot vs fixed pivot). [2m]
+5. Different cases for both algortihms (best, average, and worst). [4m]
+6. Your report must include the above experiment results that can be used to perform a comparative analysis
+between the two algorithms.

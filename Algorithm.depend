@@ -1,0 +1,36 @@
+# depslib dependency file v1.0
+1517630045 source:c:\users\alfre\desktop\algorithm\quicksort.cpp
+	<iostream>
+	<cstdlib>
+	<chrono>
+	<algorithm>
+	"quicksort.hpp"
+
+1517630045 c:\users\alfre\desktop\algorithm\quicksort.hpp
+
+1517630045 source:c:\users\alfre\desktop\algorithm\radixsort.cpp
+	<iostream>
+	"radixsort.hpp"
+
+1517630045 c:\users\alfre\desktop\algorithm\radixsort.hpp
+
+1517581536 source:c:\users\alfre\desktop\algorithm\main.cpp
+	<iostream>
+	"quicksort.hpp"
+	"radixsort.hpp"
+	"method.hpp"
+
+1517630046 c:\users\alfre\desktop\algorithm\method.hpp
+	<string>
+	"quicksort.hpp"
+	"radixsort.hpp"
+
+1517630661 source:c:\users\alfre\desktop\algorithm\method.cpp
+	<cstdlib>
+	<chrono>
+	<fstream>
+	<string>
+	<iostream>
+	<algorithm>
+	"method.hpp"
+

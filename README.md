@@ -8,9 +8,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-* [Codeblocks](http://www.codeblocks.org/downloads) - IDE
-Or
-* [Visual Studio Code](https://code.visualstudio.com/download) - Code editor
+* [CodeBlocks](http://www.codeblocks.org/downloads) - IDE
 * [MinGW](http://www.mingw.org/) - Compiler
 
 ### Installing
@@ -27,44 +25,26 @@ For MinGW compiler, you have to set environment variable.
 ```
 ;<installation-directory>\bin
 ```
-6. press OK -> OK -> OK and you are done.
+6. Press OK -> OK -> OK and you are done.
 
 Then you are good to go.
 
 ## Running the tests
 
-TBA
-
-### Break down into end to end tests
-
-TBA
-
-### And coding style tests
-
-TBA
-
-## Deployment
-
-TBA
+1. Open CodeBlocks IDE
+2. Go to File -> Open -> Algorithm.cbp
+3. Choose Open
+4. Then press build and run (Shortcut: F9)
+5. Follow instructions from there
 
 ## Built With
 
 * [Codeblocks](http://www.codeblocks.org/downloads) - IDE
-* [Visual Studio Code](https://code.visualstudio.com/download) - Code editor
 
 ## Contributing
 
-TBA
-
-## Versioning
-
-TBA
-
-## Authors
-
 * **Alfred Loo** - *Initial work* - [Alfred20697](https://github.com/Alfred20697)
-
-See also the list of []() who participated in this project.
+* **Gan Teck Beng** - *Initial work* - [beng970804](https://github.com/beng970804)
 
 ## License
 
