@@ -27,6 +27,10 @@ void question5(QuickSort* quickSort, RadixSort* radixSort);
 
 void generateRandomArray(int arr[], int SIZE);
 
+int random(int SIZE);
+
+int randomInt(int upperLimit);
+
 void reverseArray(int arr[], int SIZE);
 
 void readGuide();

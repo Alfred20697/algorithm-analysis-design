@@ -8,11 +8,11 @@
 
 1517630045 c:\users\alfre\desktop\algorithm\quicksort.hpp
 
-1517630045 source:c:\users\alfre\desktop\algorithm\radixsort.cpp
+1517669259 source:c:\users\alfre\desktop\algorithm\radixsort.cpp
 	<iostream>
 	"radixsort.hpp"
 
-1517630045 c:\users\alfre\desktop\algorithm\radixsort.hpp
+1517669106 c:\users\alfre\desktop\algorithm\radixsort.hpp
 
 1517581536 source:c:\users\alfre\desktop\algorithm\main.cpp
 	<iostream>
@@ -20,12 +20,12 @@
 	"radixsort.hpp"
 	"method.hpp"
 
-1517630046 c:\users\alfre\desktop\algorithm\method.hpp
+1517670205 c:\users\alfre\desktop\algorithm\method.hpp
 	<string>
 	"quicksort.hpp"
 	"radixsort.hpp"
 
-1517630661 source:c:\users\alfre\desktop\algorithm\method.cpp
+1517669178 source:c:\users\alfre\desktop\algorithm\method.cpp
 	<cstdlib>
 	<chrono>
 	<fstream>
@@ -33,4 +33,39 @@
 	<iostream>
 	<algorithm>
 	"method.hpp"
+
+1517581536 source:c:\users\alfre\desktop\documents\gamma trimester 2\algorithm design and analysis\assignment\algorithm-analysis-design\main.cpp
+	<iostream>
+	"quicksort.hpp"
+	"radixsort.hpp"
+	"method.hpp"
+
+1517630045 c:\users\alfre\desktop\documents\gamma trimester 2\algorithm design and analysis\assignment\algorithm-analysis-design\quicksort.hpp
+
+1518100151 c:\users\alfre\desktop\documents\gamma trimester 2\algorithm design and analysis\assignment\algorithm-analysis-design\radixsort.hpp
+
+1517670205 c:\users\alfre\desktop\documents\gamma trimester 2\algorithm design and analysis\assignment\algorithm-analysis-design\method.hpp
+	<string>
+	"quicksort.hpp"
+	"radixsort.hpp"
+
+1518104168 source:c:\users\alfre\desktop\documents\gamma trimester 2\algorithm design and analysis\assignment\algorithm-analysis-design\method.cpp
+	<cstdlib>
+	<chrono>
+	<fstream>
+	<string>
+	<iostream>
+	<algorithm>
+	"method.hpp"
+
+1518103036 source:c:\users\alfre\desktop\documents\gamma trimester 2\algorithm design and analysis\assignment\algorithm-analysis-design\quicksort.cpp
+	<iostream>
+	<cstdlib>
+	<chrono>
+	<algorithm>
+	"quicksort.hpp"
+
+1518103263 source:c:\users\alfre\desktop\documents\gamma trimester 2\algorithm design and analysis\assignment\algorithm-analysis-design\radixsort.cpp
+	<iostream>
+	"radixsort.hpp"
 

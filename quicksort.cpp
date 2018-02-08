@@ -41,7 +41,9 @@ int QuickSort::partition(int arr[], int low, int high, int size){
     swap(&arr[i + 1], &arr[high]);
     if (size<=20){
         printArray(arr, size);
+        cout << "Pivot: " << pivot << endl;
     }
+
     return (i + 1);
 }
 
@@ -96,7 +98,6 @@ void QuickSort::quickSort_r(int arr[], int low, int high, int size){
 void QuickSort::printArray(int arr[], int size){
     for (int i=0; i < size; i++)
         cout << arr[i] << " ";
-    cout << endl;
 
     return;
 }

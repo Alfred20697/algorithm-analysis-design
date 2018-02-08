@@ -64,9 +64,8 @@ void q5Menu(){
     cout << "|    Question 5 Menu    |" << endl;
     cout << "-------------------------" << endl;
     cout << "*Implementation of Quick Sort and Radix Sort with different cases*" << endl;
-    cout << "1. Best Case" << endl;
-    cout << "2. Average Case" << endl;
-    cout << "3. Worst Case" << endl;
+    cout << "1. Quick Sort - Best Case, Average Case, Worst Case" << endl;
+    cout << "2. Radix Sort - Best Case, Average Case, Worst Case" << endl;
     cout << "100. Return to Main Menu." << endl;
 
     return;
@@ -325,19 +324,13 @@ void question5(QuickSort* quickSort, RadixSort* radixSort){
         {
             case 1:
                 system("cls");
-                testSortByCase(quickSort, radixSort, "best");
+                testSortByCase(quickSort, radixSort, "quick");
                 cout << endl;
                 system("pause");
                 break;
             case 2:
                 system("cls");
-                testSortByCase(quickSort, radixSort, "average");
-                cout << endl;
-                system("pause");
-                break;
-            case 3:
-                system("cls");
-                testSortByCase(quickSort, radixSort, "worst");
+                testSortByCase(quickSort, radixSort, "radix");
                 cout << endl;
                 system("pause");
                 break;
@@ -354,17 +347,50 @@ void question5(QuickSort* quickSort, RadixSort* radixSort){
 
 void generateRandomArray(int arr[], int SIZE){
     srand(time(0));
-    cout << SIZE << endl;
-    int randMax = SIZE*10;
     for(int i=0;i<SIZE;i++){
-        arr[i] = rand() % randMax;
+        arr[i] = random(SIZE);
     }
 
     return;
 }
 
-void reverseArray(int arr[], int SIZE){
+int random(int SIZE){
+    if ((SIZE > 0) && (SIZE <= 100)){
+        return randomInt(10) + 10 * randomInt(10);
+    }
+    if ((SIZE > 100) && (SIZE <= 1000)){
+        return randomInt(10) + 10 * randomInt(10) + 100 * randomInt(10);
+    }
+    if ((SIZE > 1000) && (SIZE <= 10000)){
+        return randomInt(10) + 10 * randomInt(10) + 100 * randomInt(10) + 1000 * randomInt(10);
+    }
+    if ((SIZE > 10000) && (SIZE <= 100000)){
+        return randomInt(10) + 10 * randomInt(10) + 100 * randomInt(10) + 1000 * randomInt(10) + 10000 * randomInt(10);
+    }
+    if ((SIZE > 100000) && (SIZE <= 1000000)){
+        return randomInt(10) + 10 * randomInt(10) + 100 * randomInt(10) + 1000 * randomInt(10) + 10000 * randomInt(10) + 100000 * randomInt(10);
+    }
+    if (SIZE > 10000000) {
+        return randomInt(10) + 10 * randomInt(10) + 100 * randomInt(10) + 1000 * randomInt(10) + 10000 * randomInt(10) + 100000 * randomInt(10) + 1000000 * randomInt(10);
+    }
+    return 0;
+}
 
+int randomInt(int upperLimit){
+    int const limit = (RAND_MAX + 1) - (RAND_MAX + 1) % upperLimit;
+    int result = rand();
+    while ( result >= limit )
+        result = rand();
+
+    return result % upperLimit;
+}
+
+void reverseArray(int arr[], int SIZE){
+    for (int i=0;i<SIZE/2;i++){
+        int temp = arr[i];
+        arr[i] = arr[(SIZE-1)-i];
+        arr[(SIZE-1)-i] = temp;
+    }
 }
 
 void readGuide(){
@@ -395,6 +421,7 @@ void testSort(ItemType* sorting, int arr[], int SIZE){
     if (SIZE<=100){
         cout << "Initial Array: ";
         sorting->printArray(arr, SIZE);
+        cout << endl;
     }
 
     auto start = chrono::system_clock::now();
@@ -406,12 +433,12 @@ void testSort(ItemType* sorting, int arr[], int SIZE){
     if (SIZE<=100){
         cout << "Sorted Array: ";
         sorting->printArray(arr, SIZE);
+        cout << endl;
     }
 
     double bigduration = duration.count() * 1000;
 
     cout << "Duration: " << bigduration << " ms\n";
-
 
     return;
 }
@@ -426,11 +453,11 @@ void testSortByArraySize(QuickSort* quickSort, RadixSort* radixSort, int SIZE){
     cout << "Quick Sort" << endl;
     cout << "----------" << endl;
     testSort(quickSort, arr, SIZE);
-    cout << "-----------------------This is a partition-----------------------/n" << endl;
+    cout << "-----------------------This is a partition-----------------------\n" << endl;
     cout << "Radix Sort" << endl;
     cout << "----------" << endl;
     testSort(radixSort, copiedArray, SIZE);
-    cout << "-----------------------This is a partition-----------------------/n" << endl;
+    cout << "-----------------------This is a partition-----------------------\n" << endl;
 
     delete [] arr;
     delete [] copiedArray;
@@ -444,6 +471,7 @@ void testSortByPivot(QuickSort* quickSort, int arr[], int SIZE, string type){
         cout << "------------" << endl;
         cout << "Initial Array: ";
         quickSort->printArray(arr, SIZE);
+        cout << endl;
 
         auto start = chrono::system_clock::now();
         quickSort->quickSort_r(arr, 0, SIZE-1, SIZE);
@@ -453,17 +481,18 @@ void testSortByPivot(QuickSort* quickSort, int arr[], int SIZE, string type){
         // print sorted array
         cout << "Sorted Array: ";
         quickSort->printArray(arr, SIZE);
+        cout << endl;
 
         double bigduration = duration.count() * 1000;
 
         cout << "Duration: " << bigduration << " ms\n";
-        cout << "-----------------------This is a partition-----------------------/n" << endl;
+        cout << "-----------------------This is a partition-----------------------\n" << endl;
     }
     else if (type=="fixed"){
         cout << "Fixed Pivot" << endl;
         cout << "-----------" << endl;
         testSort(quickSort, arr, SIZE);
-        cout << "-----------------------This is a partition-----------------------/n" << endl;
+        cout << "-----------------------This is a partition-----------------------\n" << endl;
     }
     else{
         cerr << "error: undefined pivot type" << endl;
@@ -473,65 +502,63 @@ void testSortByPivot(QuickSort* quickSort, int arr[], int SIZE, string type){
 }
 
 void testSortByCase(QuickSort* quickSort, RadixSort* radixSort, string type){
-    if (type=="best"){
-        cout << "Not implemented" << endl;
-        int SIZE = 10000;
-        int* arr = new int[SIZE];
-        generateRandomArray(arr, SIZE);
-        int* copiedArray = new int[SIZE];
-        copy(arr, arr+SIZE, copiedArray);
+    if (type=="quick"){
+        // best case - quick sort
+        int arr[] = {1,3,5,6,9,10,13,12,14,11,15,7,2,4,8};
+        int SIZE = sizeof(arr)/sizeof(arr[0]);
 
-        cout << "Quick Sort" << endl;
-        cout << "----------" << endl;
+        cout << "Quick Sort - Best Case" << endl;
+        cout << "----------------------" << endl;
         testSort(quickSort, arr, SIZE);
-        cout << "-----------------------This is a partition-----------------------/n" << endl;
-        cout << "Radix Sort" << endl;
-        cout << "----------" << endl;
-        testSort(radixSort, copiedArray, SIZE);
-        cout << "-----------------------This is a partition-----------------------/n" << endl;
+        cout << "-----------------------This is a partition-----------------------\n" << endl;
 
-        delete [] arr;
-        delete [] copiedArray;
+        // average case - quick sort
+        int arr2[] = {1,3,5,7,9,11,13,15,14,12,10,8,6,4,2};
+        random_shuffle(begin(arr2),end(arr2));
+        int SIZE2 = sizeof(arr2)/sizeof(arr2[0]);
+
+        cout << "Quick Sort - Average Case" << endl;
+        cout << "-------------------------" << endl;
+        testSort(quickSort, arr2, SIZE2);
+        cout << "-----------------------This is a partition-----------------------\n" << endl;
+
+        // worst case - quick sort
+        int arr3[] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+        int SIZE3 = sizeof(arr3)/sizeof(arr3[0]);
+
+        cout << "Quick Sort - Worst Case" << endl;
+        cout << "-----------------------" << endl;
+        testSort(quickSort, arr3, SIZE3);
+        cout << "-----------------------This is a partition-----------------------\n" << endl;
+
     }
-    else if (type=="average"){
-        cout << "Not implemented" << endl;
-        int SIZE = 10000;
-        int* arr = new int[SIZE];
-        generateRandomArray(arr, SIZE);
-        int* copiedArray = new int[SIZE];
-        copy(arr, arr+SIZE, copiedArray);
+    else if (type=="radix"){
+        // best case - radix sort
+        int arr[] = {1,2,3,4,5,6,7,8,9,1};
+        int SIZE = sizeof(arr)/sizeof(arr[0]);
 
-        cout << "Quick Sort" << endl;
-        cout << "----------" << endl;
-        testSort(quickSort, arr, SIZE);
-        cout << "-----------------------This is a partition-----------------------/n" << endl;
-        cout << "Radix Sort" << endl;
-        cout << "----------" << endl;
-        testSort(radixSort, copiedArray, SIZE);
-        cout << "-----------------------This is a partition-----------------------/n" << endl;
+        cout << "Radix Sort - Best Case" << endl;
+        cout << "----------------------" << endl;
+        testSort(radixSort, arr, SIZE);
+        cout << "-----------------------This is a partition-----------------------\n" << endl;
 
-        delete [] arr;
-        delete [] copiedArray;
-    }
-    else if (type=="worst"){
-        cout << "Not implemented" << endl;
-        int SIZE = 10000;
-        int* arr = new int[SIZE];
-        generateRandomArray(arr, SIZE);
-        int* copiedArray = new int[SIZE];
-        copy(arr, arr+SIZE, copiedArray);
+        // average case - radix sort
+        int arr2[] = {1,2,30,40,500,600,7000,8000,90000,10000};
+        int SIZE2 = sizeof(arr2)/sizeof(arr2[0]);
 
-        cout << "Quick Sort" << endl;
-        cout << "----------" << endl;
-        testSort(quickSort, arr, SIZE);
-        cout << "-----------------------This is a partition-----------------------/n" << endl;
-        cout << "Radix Sort" << endl;
-        cout << "----------" << endl;
-        testSort(radixSort, copiedArray, SIZE);
-        cout << "-----------------------This is a partition-----------------------/n" << endl;
+        cout << "Radix Sort - Average Case" << endl;
+        cout << "-------------------------" << endl;
+        testSort(radixSort, arr2, SIZE2);
+        cout << "-----------------------This is a partition-----------------------\n" << endl;
 
-        delete [] arr;
-        delete [] copiedArray;
+        // worst case - radix sort
+        int arr3[] = {1,20,300,4000,50000,600000,7000000,80000000,900000000,1000000000};
+        int SIZE3 = sizeof(arr3)/sizeof(arr3[0]);
+
+        cout << "Radix Sort - Worst Case" << endl;
+        cout << "-----------------------" << endl;
+        testSort(radixSort, arr3, SIZE3);
+        cout << "-----------------------This is a partition-----------------------\n" << endl;
     }
     else {
         cerr << "error: undefined case type" << endl;
