@@ -543,7 +543,7 @@ void testSortByCase(QuickSort* quickSort, RadixSort* radixSort, string type){
         cout << "-----------------------This is a partition-----------------------\n" << endl;
 
         // average case - radix sort
-        int arr2[] = {1,2,30,40,500,600,7000,8000,90000,10000};
+        int arr2[] = {100,200,300,400,5000,6000,7000,8000,90000,90000};
         int SIZE2 = sizeof(arr2)/sizeof(arr2[0]);
 
         cout << "Radix Sort - Average Case" << endl;
